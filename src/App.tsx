@@ -78,13 +78,15 @@ export default function App () {
         {Object.entries(toSupport).map(([key, def]) => {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
+          
+          const isSupported = def["basic functionality"].ol === "TODO" || def["basic functionality"].ol === "999.9.9"
           return (
             <div
               key={key}
               style={{ display: "flex", gap: 4, flexDirection: "column" }}
             >
               <div>
-                {def["basic functionality"].ol === "TODO" ? "❌" : "✅"}&nbsp;
+                {isSupported ? "❌" : "✅"}&nbsp;
                 {key}
               </div>
               {isMissingStyles && (

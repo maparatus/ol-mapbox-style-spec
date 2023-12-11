@@ -571,7 +571,7 @@
             "doc": "A filled polygon with an optional stroked border.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "12.1.1",
                 "js": "0.10.0",
                 "android": "2.0.1",
                 "ios": "2.0.0",
@@ -583,7 +583,7 @@
             "doc": "A stroked line.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "12.1.1",
                 "js": "0.10.0",
                 "android": "2.0.1",
                 "ios": "2.0.0",
@@ -595,7 +595,7 @@
             "doc": "An icon or a text label.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "12.1.1",
                 "js": "0.10.0",
                 "android": "2.0.1",
                 "ios": "2.0.0",
@@ -607,7 +607,7 @@
             "doc": "A filled circle.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "12.1.1",
                 "js": "0.10.0",
                 "android": "2.0.1",
                 "ios": "2.0.0",
@@ -619,7 +619,7 @@
             "doc": "A heatmap.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "999.9.9",
                 "js": "0.41.0",
                 "android": "6.0.0",
                 "ios": "4.0.0",
@@ -667,7 +667,7 @@
             "doc": "The background color or pattern of the map.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "12.1.1",
                 "js": "0.10.0",
                 "android": "2.0.1",
                 "ios": "2.0.0",
@@ -745,7 +745,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -798,7 +798,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -876,7 +876,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -1078,7 +1078,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -2652,7 +2652,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -3424,7 +3424,7 @@
           "group": "Heatmap",
           "sdk-support": {
             "basic functionality": {
-              "ol": "TODO",
+              "ol": "999.9.9",
               "js": "0.41.0",
               "android": "6.0.0",
               "ios": "4.0.0",
@@ -5309,7 +5309,7 @@
         "doc": "Radius of influence of one heatmap point in pixels. Increasing the value makes the heatmap smoother, but less detailed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -5341,7 +5341,7 @@
         "doc": "A measure of how much an individual point contributes to the heatmap. A value of 10 would be equivalent to having 10 points of weight 1 in the same spot. Especially useful when combined with clustering.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -5373,7 +5373,7 @@
         "doc": "Similar to `heatmap-weight` but controls the intensity of the heatmap globally. Primarily used for adjusting the heatmap based on zoom level.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -5415,7 +5415,7 @@
         "transition": false,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -5440,7 +5440,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.41.0",
             "android": "6.0.0",
             "ios": "4.0.0",

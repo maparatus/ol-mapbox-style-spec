@@ -10,7 +10,9 @@ const PointsGeoJSON: FeatureCollection = {
         type: "Point",
         coordinates: [-1, 0],
       },
-      properties: {},
+      properties: {
+        name: "one"
+      },
     },
     {
       type: "Feature",
@@ -18,13 +20,56 @@ const PointsGeoJSON: FeatureCollection = {
         type: "Point",
         coordinates: [0, -1],
       },
-      properties: {},
+      properties: {
+        name: "two"
+      },
     },
     {
       type: "Feature",
       geometry: {
         type: "Point",
         coordinates: [0, 0.5],
+      },
+      properties: {
+        name: "three"
+      },
+    },
+  ],
+};
+
+const LineGeoJSON: FeatureCollection = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [
+          [-3, 0],
+          [3, 0],
+        ],
+      },
+      properties: {},
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [
+          [-3, -1],
+          [3, -1],
+        ],
+      },
+      properties: {},
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [
+          [-3, 0.5],
+          [3, 0.5],
+        ],
       },
       properties: {},
     },
@@ -177,7 +222,25 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "layer.type.values.line": [],
   "layer.type.values.raster": [],
   "layer.type.values.symbol": [],
-  "layout_background.visibility": [],
+  "layout_background.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {},
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "background",
+          layout: {
+              visibility: "none",
+          }
+        },
+      ],
+    },
+  ],
   "layout_circle.circle-sort-key": [],
   "layout_circle.visibility": [
     {
@@ -206,7 +269,31 @@ const testStyles: Record<string, StyleSpecification[]> = {
   ],
   "layout_fill-extrusion.visibility": [],
   "layout_fill.fill-sort-key": [],
-  "layout_fill.visibility": [],
+  "layout_fill.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "fill",
+          source: "polygons",
+          layout: {
+            "visibility": "none"
+          },
+        },
+      ],
+    },
+  ],
   "layout_heatmap.visibility": [],
   "layout_hillshade.visibility": [],
   "layout_line.line-cap": [],
@@ -214,19 +301,125 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "layout_line.line-miter-limit": [],
   "layout_line.line-round-limit": [],
   "layout_line.line-sort-key": [],
-  "layout_line.visibility": [],
+  "layout_line.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {
+              visibility: "none",
+          }
+        },
+      ],
+    },
+  ],
   "layout_raster.visibility": [],
   "layout_symbol.icon-allow-overlap": [],
   "layout_symbol.icon-anchor": [],
   "layout_symbol.icon-ignore-placement": [],
-  "layout_symbol.icon-image": [],
+  "layout_symbol.icon-image": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11"
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-keep-upright": [],
-  "layout_symbol.icon-offset": [],
+  "layout_symbol.icon-offset": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+          }
+        },
+        {
+          id: "test2",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-offset": [90, 80]
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-optional": [],
   "layout_symbol.icon-overlap": [],
   "layout_symbol.icon-padding": [],
   "layout_symbol.icon-pitch-alignment": [],
-  "layout_symbol.icon-rotate": [],
+  "layout_symbol.icon-rotate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-rotate": 45
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-rotation-alignment": [],
   "layout_symbol.icon-size": [],
   "layout_symbol.icon-text-fit-padding": [],
@@ -238,29 +431,300 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "layout_symbol.symbol-z-order": [],
   "layout_symbol.text-allow-overlap": [],
   "layout_symbol.text-anchor": [],
-  "layout_symbol.text-field": [],
-  "layout_symbol.text-font": [],
+  "layout_symbol.text-field": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "[{name}]"
+          }
+        },
+      ],
+    },
+  ],
+  "layout_symbol.text-font": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Open Sans Bold"],
+            "text-field": "[{name}]"
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-ignore-placement": [],
   "layout_symbol.text-justify": [],
   "layout_symbol.text-keep-upright": [],
-  "layout_symbol.text-letter-spacing": [],
-  "layout_symbol.text-line-height": [],
+  "layout_symbol.text-letter-spacing": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}", 
+            "text-letter-spacing": 2,
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
+  "layout_symbol.text-line-height": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}\n{name}", 
+            "text-line-height": 2,
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-max-angle": [],
-  "layout_symbol.text-max-width": [],
-  "layout_symbol.text-offset": [],
+  "layout_symbol.text-max-width": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name} {name}", 
+            "text-max-width": 1,
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
+  "layout_symbol.text-offset": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "[{name}]",
+          }
+        },
+        {
+          id: "test2",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "[{name}]",
+            "text-offset": [2, 2],
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-optional": [],
   "layout_symbol.text-overlap": [],
   "layout_symbol.text-padding": [],
   "layout_symbol.text-pitch-alignment": [],
   "layout_symbol.text-radial-offset": [],
-  "layout_symbol.text-rotate": [],
+  "layout_symbol.text-rotate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}", 
+            "text-rotate": 30,
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-rotation-alignment": [],
-  "layout_symbol.text-size": [],
-  "layout_symbol.text-transform": [],
+  "layout_symbol.text-size": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}", 
+            "text-size": 30,
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
+  "layout_symbol.text-transform": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}", 
+            "text-transform": "uppercase",
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-variable-anchor-offset": [],
   "layout_symbol.text-variable-anchor": [],
   "layout_symbol.text-writing-mode": [],
-  "layout_symbol.visibility": [],
+  "layout_symbol.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              visibility: "none",
+          }
+        },
+      ],
+    },
+  ],
   "light.anchor": [],
   "light.color": [],
   "light.intensity": [],
@@ -686,7 +1150,31 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "paint_heatmap.heatmap-color": [],
+  "paint_heatmap.heatmap-color": [
+    // {
+    //   version: 8,
+    //   name: "test",
+    //   sources: {
+    //     points: {
+    //       type: "geojson",
+    //       data: PointsGeoJSON,
+    //     },
+    //   },
+    //   sprite: "",
+    //   glyphs:
+    //     "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+    //   layers: [
+    //     {
+    //       id: "test",
+    //       type: "heatmap",
+    //       source: "points",
+    //       paint: {
+    //         "heatmap-color": ["interpolate",["linear"],["heatmap-density"],0,"rgba(0, 0, 255, 0)",0.5,"rgba(0, 0, 255, 1)",1,"rgba(255, 0, 0, 1)"]
+    //       },
+    //     },
+    //   ],
+    // },
+  ],
   "paint_heatmap.heatmap-intensity": [],
   "paint_heatmap.heatmap-opacity": [],
   "paint_heatmap.heatmap-radius": [],
@@ -697,17 +1185,233 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "paint_hillshade.hillshade-illumination-anchor": [],
   "paint_hillshade.hillshade-illumination-direction": [],
   "paint_hillshade.hillshade-shadow-color": [],
-  "paint_line.line-blur": [],
-  "paint_line.line-color": [],
-  "paint_line.line-dasharray": [],
+  "paint_line.line-blur": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  
+            "line-width": 4,
+            "line-blur": 2
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {
+            "line-color": "rgba(255, 0, 0, 1)"
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-dasharray": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {
+            "line-dasharray": [4, 5, 4],
+          }
+        },
+      ],
+    },
+  ],
   "paint_line.line-gap-width": [],
   "paint_line.line-gradient": [],
-  "paint_line.line-offset": [],
-  "paint_line.line-opacity": [],
-  "paint_line.line-pattern": [],
+  "paint_line.line-offset": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {}
+        },
+        {
+          id: "test2",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  
+            "line-offset": 10,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-opacity": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  
+            "line-opacity": 0.2,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-pattern": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  
+            "line-width": 20,
+            "line-pattern": "wetland_bg_11",
+          }
+        },
+      ],
+    },
+  ],
   "paint_line.line-translate-anchor": [],
-  "paint_line.line-translate": [],
-  "paint_line.line-width": [],
+  "paint_line.line-translate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  }
+        },
+        {
+          id: "test2",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {  
+            "line-translate": [10, 10],
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-width": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "points",
+          layout: {},
+          paint: {
+            "line-width": 20,
+          }
+        },
+      ],
+    },
+  ],
   "paint_raster.raster-brightness-max": [],
   "paint_raster.raster-brightness-min": [],
   "paint_raster.raster-contrast": [],
@@ -720,16 +1424,140 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "paint_symbol.icon-halo-blur": [],
   "paint_symbol.icon-halo-color": [],
   "paint_symbol.icon-halo-width": [],
-  "paint_symbol.icon-opacity": [],
+  "paint_symbol.icon-opacity": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+          },
+          paint: {
+              "icon-opacity": 0.8,
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.icon-translate-anchor": [],
   "paint_symbol.icon-translate": [],
   "paint_symbol.text-color": [],
-  "paint_symbol.text-halo-blur": [],
-  "paint_symbol.text-halo-color": [],
+  "paint_symbol.text-halo-blur": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-halo-width": 1,
+            "text-halo-color": "red",
+            "text-halo-blur": 0.8,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_symbol.text-halo-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-halo-width": 2,
+            "text-halo-color": "red",
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.text-halo-width": [],
   "paint_symbol.text-opacity": [],
   "paint_symbol.text-translate-anchor": [],
-  "paint_symbol.text-translate": [],
+  "paint_symbol.text-translate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {}
+        },
+        {
+          id: "test2",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-translate": [20, 20],
+          }
+        },
+      ],
+    },
+  ],
   "source_raster_dem.baseShift": [],
   "source_raster_dem.blueFactor": [],
   "source_raster_dem.greenFactor": [],
