@@ -6,13 +6,15 @@ import {
   NavigationControl,
   StyleSpecification,
 } from "maplibre-gl";
+import { useInView } from "react-intersection-observer";
 
 export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecification }) {
+  const { ref: refInView, inView } = useInView();
   const [map, setMap] = useState<MapLibreMap | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && inView) {
       const mapInstance = new MapLibreMap({
         container: ref.current,
         style: mapStyle,
@@ -25,7 +27,7 @@ export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecification })
         mapInstance.remove();
       };
     }
-  }, [ref]);
+  }, [ref, inView]);
 
   useEffect(() => {
     if (map) {
@@ -33,5 +35,7 @@ export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecification })
     }
   }, [mapStyle]);
 
-  return <div style={{ width: "100%", height: "100%" }} ref={ref} />;
+  return <div ref={refInView} style={{ position: "relative", width: "100%", height: "100%" }}>
+    <div style={{ width: "100%", height: "100%" }} ref={ref} />
+  </div>;
 }

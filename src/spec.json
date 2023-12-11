@@ -851,7 +851,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4168,7 +4168,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4204,7 +4204,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4242,7 +4242,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4964,7 +4964,7 @@
         "doc": "Circle radius.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4995,7 +4995,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5059,7 +5059,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5241,7 +5241,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.29.0",
             "android": "5.0.0",
             "ios": "3.5.0",
@@ -6296,7 +6296,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -6342,7 +6342,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
