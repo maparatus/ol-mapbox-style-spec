@@ -1750,7 +1750,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.39.0",
             "android": "5.2.0",
             "ios": "3.7.0",
@@ -1785,7 +1785,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.21.0",
             "android": "4.2.0",
             "ios": "3.4.0",
@@ -5157,7 +5157,7 @@
         "doc": "Controls the scaling behavior of the circle when the map is pitched.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.21.0",
             "android": "4.2.0",
             "ios": "3.4.0",
@@ -5186,7 +5186,7 @@
         "doc": "Orientation of circle when map is pitched.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.39.0",
             "android": "5.2.0",
             "ios": "3.7.0",
