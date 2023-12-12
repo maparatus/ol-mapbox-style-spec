@@ -1439,7 +1439,7 @@ const testStyles: Record<string, StyleSpecification[]> = {
       version: 8,
       name: "test",
       sources: {
-        points: {
+        lines: {
           type: "geojson",
           data: LineGeoJSON,
         },
@@ -1451,7 +1451,7 @@ const testStyles: Record<string, StyleSpecification[]> = {
         {
           id: "test",
           type: "line",
-          source: "points",
+          source: "lines",
           layout: {},
           paint: {
             "line-dasharray": [4, 5, 4],
@@ -1460,8 +1460,79 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "paint_line.line-gap-width": [],
-  "paint_line.line-gradient": [],
+  "paint_line.line-gap-width": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        lines: {
+          type: "geojson",
+          data: LineGeoJSON,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "lines",
+          layout: {},
+          paint: {
+            "line-gap-width": 3,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_line.line-gradient": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        lines: {
+          type: "geojson",
+          data: LineGeoJSON,
+          lineMetrics: true,
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "lines",
+          layout: {},
+          paint: {
+            "line-gradient": [
+              "interpolate",
+              [
+                "linear"
+              ],
+              [
+                "line-progress"
+              ],
+              0,
+              "blue",
+              0.1,
+              "royalblue",
+              0.3,
+              "cyan",
+              0.5,
+              "lime",
+              0.7,
+              "yellow",
+              1,
+              "red"
+            ],
+          }
+        },
+      ],
+    },
+  ],
   "paint_line.line-offset": [
     {
       version: 8,
@@ -1812,7 +1883,35 @@ const testStyles: Record<string, StyleSpecification[]> = {
   ],
   "paint_symbol.icon-translate-anchor": [],
   "paint_symbol.icon-translate": [],
-  "paint_symbol.text-color": [],
+  "paint_symbol.text-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-color": "hotpink",
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.text-halo-blur": [
     {
       version: 8,
@@ -1875,7 +1974,35 @@ const testStyles: Record<string, StyleSpecification[]> = {
     },
   ],
   "paint_symbol.text-halo-width": [],
-  "paint_symbol.text-opacity": [],
+  "paint_symbol.text-opacity": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-opacity": 0.3,
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.text-translate-anchor": [],
   "paint_symbol.text-translate": [
     {
