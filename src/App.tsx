@@ -65,6 +65,18 @@ export default function App () {
     >
       <h1>ol-mapbox-style spec test</h1>
       <p>A specification test for ol-mapbox-style against maplibre-gl</p>
+      <p>Icon key (not yet complete):</p>
+      <dl style={{display: "grid", gridTemplateColumns: "20px auto", gap: 6, border: "solid 1px #ddd", padding: 8}}>
+        <dt>⬜</dt>
+        <dd style={{margin: 0}}>Todo</dd>
+
+        <dt>❌</dt>
+        <dd style={{margin: 0}}>Not supported</dd>
+
+        <dt>✅</dt>
+        <dd style={{margin: 0}}>Supported</dd>
+      </dl>
+
       <ul
         style={{
           listStyle: "none",
@@ -79,14 +91,21 @@ export default function App () {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
           
-          const isSupported = def["basic functionality"].ol === "TODO" || def["basic functionality"].ol === "999.9.9"
+          let icon = "⬜"
+          if (def["basic functionality"].ol === "TODO") {
+            icon = "⬜"
+          } else if (def["basic functionality"].ol === "999.9.9") {
+            icon = "❌"
+          } else {
+            icon = "✅"
+          }
           return (
             <div
               key={key}
               style={{ display: "flex", gap: 4, flexDirection: "column" }}
             >
               <div>
-                {isSupported ? "❌" : "✅"}&nbsp;
+                {icon}&nbsp;
                 {key}
               </div>
               {isMissingStyles && (
