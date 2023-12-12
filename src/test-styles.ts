@@ -213,15 +213,159 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "expression_name.values.var": [],
   "expression_name.values.within": [],
   "expression_name.values.zoom": [],
-  "layer.type.values.background": [],
-  "layer.type.values.circle": [],
+  "layer.type.values.background": [
+    {
+      version: 8,
+      name: "test",
+      sources: {},
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "background",
+        },
+      ],
+    },
+  ],
+  "layer.type.values.circle": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "circle",
+          source: "points",
+        },
+      ],
+    },
+  ],
   "layer.type.values.fill-extrusion": [],
-  "layer.type.values.fill": [],
-  "layer.type.values.heatmap": [],
+  "layer.type.values.fill": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "fill",
+          source: "polygons",
+        },
+      ],
+    },
+  ],
+  "layer.type.values.heatmap": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "heatmap",
+          source: "points",
+        },
+      ],
+    },
+  ],
   "layer.type.values.hillshade": [],
-  "layer.type.values.line": [],
-  "layer.type.values.raster": [],
-  "layer.type.values.symbol": [],
+  "layer.type.values.line": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        lines: {
+          type: "geojson",
+          data: LineGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "lines",
+        },
+      ],
+    },
+  ],
+  "layer.type.values.raster": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+        },
+      ],
+    },
+  ],
+  "layer.type.values.symbol": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+        },
+      ],
+    },
+  ],
   "layout_background.visibility": [
     {
       version: 8,
@@ -326,7 +470,34 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "layout_raster.visibility": [],
+  "layout_raster.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          layout: {
+            visibility: "none",
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-allow-overlap": [],
   "layout_symbol.icon-anchor": [],
   "layout_symbol.icon-ignore-placement": [],
@@ -421,7 +592,32 @@ const testStyles: Record<string, StyleSpecification[]> = {
     },
   ],
   "layout_symbol.icon-rotation-alignment": [],
-  "layout_symbol.icon-size": [],
+  "layout_symbol.icon-size": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-size": 3
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-text-fit-padding": [],
   "layout_symbol.icon-text-fit": [],
   "layout_symbol.symbol-avoid-edges": [],
@@ -1412,14 +1608,176 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "paint_raster.raster-brightness-max": [],
-  "paint_raster.raster-brightness-min": [],
-  "paint_raster.raster-contrast": [],
+  "paint_raster.raster-brightness-max": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-brightness-max": 0.4,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_raster.raster-brightness-min": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-brightness-min": 0.4,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_raster.raster-contrast": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-contrast": -0.6,
+          }
+        },
+      ],
+    },
+  ],
   "paint_raster.raster-fade-duration": [],
-  "paint_raster.raster-hue-rotate": [],
-  "paint_raster.raster-opacity": [],
+  "paint_raster.raster-hue-rotate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-hue-rotate": 90,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_raster.raster-opacity": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-opacity": 0.4,
+          }
+        },
+      ],
+    },
+  ],
   "paint_raster.raster-resampling": [],
-  "paint_raster.raster-saturation": [],
+  "paint_raster.raster-saturation": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        'test': {
+          'type': 'raster',
+          'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          'tileSize': 256,
+          'attribution':
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "raster",
+          source: "test",
+          paint: {
+            "raster-saturation": -0.8,
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.icon-color": [],
   "paint_symbol.icon-halo-blur": [],
   "paint_symbol.icon-halo-color": [],
