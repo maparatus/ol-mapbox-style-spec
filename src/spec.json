@@ -631,11 +631,14 @@
             "doc": "An extruded (3D) polygon.",
             "sdk-support": {
               "basic functionality": {
-                "ol": "TODO",
+                "ol": "999.9.9",
                 "js": "0.27.0",
                 "android": "5.1.0",
                 "ios": "3.6.0",
                 "macos": "0.5.0"
+              },
+              "basic functionality fallback": {
+                "ol": "12.1.1"
               }
             }
           },
@@ -901,11 +904,14 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
             "macos": "0.5.0"
+          },
+          "basic functionality fallback": {
+            "ol": "12.1.1"
           }
         },
         "property-type": "constant"
@@ -4366,11 +4372,14 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "12.1.1",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
             "macos": "0.5.0"
+          },
+          "basic functionality fallback": {
+            "ol": "12.1.1"
           }
         },
         "expression": {
@@ -4393,7 +4402,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "12.1.1",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4405,6 +4414,9 @@
             "android": "5.1.0",
             "ios": "3.6.0",
             "macos": "0.5.0"
+          },
+          "basic functionality fallback": {
+            "ol": "12.1.1"
           }
         },
         "expression": {
@@ -4483,7 +4495,7 @@
         "doc": "Name of image in sprite to use for drawing images on extruded fills. For seamless patterns, image width and height must be a factor of two (2, 4, 8, ..., 512). Note that zoom-dependent expressions will be evaluated only at integer zoom levels.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "12.1.1",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4495,6 +4507,9 @@
             "android": "6.5.0",
             "macos": "0.11.0",
             "ios": "4.4.0"
+          },
+          "basic functionality fallback": {
+            "ol": "12.1.1"
           }
         },
         "expression": {
