@@ -44,12 +44,12 @@ function MapDemo({ mapStyle }: { mapStyle: StyleSpecification }) {
       }}
     >
       <div
-        style={{ border: "solid 1px black", height: 300, overflow: "hidden" }}
+        style={{ border: "solid 1px black", height: 300, overflow: "hidden", background: "#fff" }}
       >
         <MaplibreMapView mapStyle={mapStyle} />
       </div>
       <div
-        style={{ border: "solid 1px black", height: 300, overflow: "hidden" }}
+        style={{ border: "solid 1px black", height: 300, overflow: "hidden", background: "#fff" }}
       >
         <OpenLayerMapView mapStyle={mapStyle} />
       </div>
@@ -159,9 +159,13 @@ export default function App () {
                 </div>
               )}
               {!isMissingStyles && (
-                <div style={{ position: "relative" }}>
+                <div style={{ position: "relative", display: "flex", flexDirection: "column", gap: 6 }}>
                   {styles.map((style, styleIndex) => {
-                    return <div>
+                    return <div style={{
+                      background: "#f6f6f6",
+                      padding: 8,
+                      border: "solid 1px #eee",
+                    }}>
                       {style.metadata?.description}
                       <MapDemo key={styleIndex} mapStyle={style} />
                     </div>;
