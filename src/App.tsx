@@ -56,6 +56,24 @@ function MapDemo({ mapStyle }: { mapStyle: StyleSpecification }) {
   );
 }
 
+function getIcon (def, type: "basic" | "data-driven") {
+  const key = {
+    "data-driven": "data-driven styling",
+    "basic": "basic functionality"
+  }[type]
+  let icon = "⬜"
+  if (!def[key]) {
+    icon = "⬜";
+  } else if (def[key].ol === "TODO") {
+    icon = "📝"
+  } else if (def[key].ol === "999.9.9") {
+    icon = "❌"
+  } else {
+    icon = "✅"
+  }
+  return icon;
+}
+
 export default function App () {
   return (
     <div
@@ -65,9 +83,11 @@ export default function App () {
     >
       <h1>ol-mapbox-style spec test</h1>
       <p>A specification test for ol-mapbox-style against maplibre-gl</p>
+
+
       <p>Icon key (not yet complete):</p>
       <dl style={{display: "grid", gridTemplateColumns: "20px auto", gap: 6, border: "solid 1px #ddd", padding: 8}}>
-        <dt>⬜</dt>
+        <dt>📝</dt>
         <dd style={{margin: 0}}>Todo</dd>
 
         <dt>❌</dt>
@@ -75,7 +95,32 @@ export default function App () {
 
         <dt>✅</dt>
         <dd style={{margin: 0}}>Supported</dd>
+        
+        <dt>⬜</dt>
+        <dd style={{margin: 0}}>Not required</dd>
+        
       </dl>
+
+      <div style={{overflowX: "auto"}}>
+        <table>
+          <thead>
+            <tr>
+              <td>feature</td>
+              <td>basic functionality</td>
+              <td>data-driven styling</td>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(toSupport).map(([key, def]) => {
+              return <tr>
+                <td>{key}</td>
+                <td>{getIcon(def, "basic")}</td>
+                <td>{getIcon(def, "data-driven")}</td>
+              </tr>
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <ul
         style={{
@@ -91,14 +136,7 @@ export default function App () {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
           
-          let icon = "⬜"
-          if (def["basic functionality"].ol === "TODO") {
-            icon = "⬜"
-          } else if (def["basic functionality"].ol === "999.9.9") {
-            icon = "❌"
-          } else {
-            icon = "✅"
-          }
+          const icon = getIcon(def);
           return (
             <div
               key={key}
