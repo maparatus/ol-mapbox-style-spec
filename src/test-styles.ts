@@ -1,5 +1,17 @@
-import { StyleSpecification } from "maplibre-gl";
+import { RasterDEMSourceSpecification, StyleSpecification } from "maplibre-gl";
 import { FeatureCollection } from "geojson";
+
+const TerrariumSource: RasterDEMSourceSpecification = {
+  type: 'raster-dem',
+  attribution:
+    '<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md" target="_blank">Data sources and attribution</a>',
+  tileSize: 256,
+  tiles: [
+    'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png',
+  ],
+  maxzoom: 15,
+  encoding: 'terrarium',
+}
 
 const PointsGeoJSON: FeatureCollection = {
   type: "FeatureCollection",
@@ -320,7 +332,26 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "layer.type.values.hillshade": [],
+  "layer.type.values.hillshade": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {},
+        },
+      ],
+    },
+  ],
   "layer.type.values.line": [
     {
       version: 8,
@@ -487,7 +518,29 @@ const testStyles: Record<string, StyleSpecification[]> = {
     },
   ],
   "layout_heatmap.visibility": [],
-  "layout_hillshade.visibility": [],
+  "layout_hillshade.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          layout: {
+            visibility: "none",
+          },
+          paint: {},
+        },
+      ],
+    },
+  ],
   "layout_line.line-cap": [],
   "layout_line.line-join": [],
   "layout_line.line-miter-limit": [],
@@ -1576,12 +1629,123 @@ const testStyles: Record<string, StyleSpecification[]> = {
   "paint_heatmap.heatmap-opacity": [],
   "paint_heatmap.heatmap-radius": [],
   "paint_heatmap.heatmap-weight": [],
-  "paint_hillshade.hillshade-accent-color": [],
-  "paint_hillshade.hillshade-exaggeration": [],
-  "paint_hillshade.hillshade-highlight-color": [],
+  "paint_hillshade.hillshade-accent-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {
+            'hillshade-accent-color': '#ff0000',
+          },
+        },
+      ],
+    },
+  ],
+  "paint_hillshade.hillshade-exaggeration": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {
+            'hillshade-exaggeration': {
+              stops: [
+                [6, 0.4],
+                [14, 0.35],
+                [18, 0.25],
+              ],
+            },
+          },
+        },
+      ],
+    },
+  ],
+  "paint_hillshade.hillshade-highlight-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {
+            'hillshade-highlight-color': '#ff0000',
+          },
+        },
+      ],
+    },
+  ],
   "paint_hillshade.hillshade-illumination-anchor": [],
-  "paint_hillshade.hillshade-illumination-direction": [],
-  "paint_hillshade.hillshade-shadow-color": [],
+  "paint_hillshade.hillshade-illumination-direction": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {
+            'hillshade-illumination-direction': 180,
+          },
+        },
+      ],
+    },
+  ],
+  "paint_hillshade.hillshade-shadow-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        terrarium: TerrariumSource,
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: 'hillshade',
+          type: 'hillshade',
+          source: 'terrarium',
+          paint: {
+            'hillshade-shadow-color': '#ff0000',
+          },
+        },
+      ],
+    },
+  ],
   "paint_line.line-blur": [
     {
       version: 8,
@@ -1760,7 +1924,7 @@ const testStyles: Record<string, StyleSpecification[]> = {
           type: "line",
           source: "points",
           layout: {},
-          paint: {  
+          paint: {
             "line-offset": 10,
           }
         },
