@@ -2338,7 +2338,36 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "paint_symbol.text-halo-width": [],
+  "paint_symbol.text-halo-width": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}" 
+          },
+          paint: {
+            "text-halo-width": 10,
+            "text-halo-color": "red",
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.text-opacity": [
     {
       version: 8,
