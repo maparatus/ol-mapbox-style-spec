@@ -113,7 +113,7 @@ export default function App () {
           <tbody>
             {Object.entries(toSupport).map(([key, def]) => {
               return <tr>
-                <td>{key}</td>
+                <td><a href={`#${key}`}>{key}</a></td>
                 <td>{getIcon(def, "basic")}</td>
                 <td>{getIcon(def, "data-driven")}</td>
               </tr>
@@ -142,6 +142,7 @@ export default function App () {
               key={key}
               style={{ display: "flex", gap: 4, flexDirection: "column" }}
             >
+              <a id={key} />
               <div>
                 {icon}&nbsp;
                 {key}
