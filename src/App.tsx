@@ -57,11 +57,25 @@ function MapDemo({ mapStyle }: { mapStyle: StyleSpecification }) {
   );
 }
 
-function getIcon (def, type: "basic" | "data-driven") {
+type SdkSupportItem = {
+  "ol": string;
+  "js": string;
+  "android": string;
+  "ios": string;
+  "macos": string;
+}
+type SdkSupport = {
+  "basic functionality": SdkSupportItem
+  "data-driven styling": SdkSupportItem
+  "basic functionality fallback": SdkSupportItem
+  "data-driven styling fallback": SdkSupportItem
+}
+
+function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
   const key = {
     "data-driven": "data-driven styling",
     "basic": "basic functionality",
-  }[type];
+  }[type] as keyof SdkSupport;
   
   let icon = "⬜"
   if (!def[key] || !def[key].ol) {
@@ -69,7 +83,7 @@ function getIcon (def, type: "basic" | "data-driven") {
   } else if (def[key].ol === "TODO") {
     icon = "📝"
   } else if (def[key].ol === "999.9.9") {
-    const fallbackKey = key+" fallback"
+    const fallbackKey = `${key} fallback` as keyof SdkSupport
     if (def[fallbackKey] && def[fallbackKey].ol !== "TODO" && def[fallbackKey].ol !== "999.9.9") {
       icon = "🏚️"
     } else {

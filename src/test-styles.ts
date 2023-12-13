@@ -1892,13 +1892,7 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
           type: 'hillshade',
           source: 'terrarium',
           paint: {
-            'hillshade-exaggeration': {
-              stops: [
-                [6, 0.4],
-                [14, 0.35],
-                [18, 0.25],
-              ],
-            },
+            'hillshade-exaggeration': 0.4,
           },
         },
       ],
