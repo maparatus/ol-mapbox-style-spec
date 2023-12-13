@@ -81,7 +81,7 @@ export default function App () {
         padding: 12,
       }}
     >
-      <h1>ol-mapbox-style spec test</h1>
+      <h1>ol-mapbox-style-spec</h1>
       <p>A specification test for ol-mapbox-style against maplibre-gl</p>
 
 
