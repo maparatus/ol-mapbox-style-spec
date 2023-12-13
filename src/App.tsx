@@ -112,19 +112,19 @@ export default function App () {
       <p>Icon key (not yet complete):</p>
       <dl style={{display: "grid", gridTemplateColumns: "20px auto", gap: 6, border: "solid 1px #ddd", padding: 8}}>
         <dt>🤷</dt>
-        <dd style={{margin: 0}}>Unknown</dd>
+        <dd style={{margin: 0}}><em>Unknown</em>: not yet investigated</dd>
 
         <dt>❌</dt>
-        <dd style={{margin: 0}}>Not supported</dd>
+        <dd style={{margin: 0}}><em>Not supported</em>: does nothing</dd>
 
         <dt>🏚️</dt>
-        <dd style={{margin: 0}}>Fallback</dd>
+        <dd style={{margin: 0}}><em>Fallback</em>: fill-extrusion emulates the 2D part of that spec</dd>
 
         <dt>✅</dt>
-        <dd style={{margin: 0}}>Supported</dd>
+        <dd style={{margin: 0}}><em>Supported</em>: has same behaviour as maplibre to a great enough extent to considered supported</dd>
         
         <dt>⬜</dt>
-        <dd style={{margin: 0}}>Not required</dd>
+        <dd style={{margin: 0}}><em>Not required</em>: not required by spec</dd>
         
       </dl>
 
@@ -132,9 +132,9 @@ export default function App () {
         <table>
           <thead>
             <tr>
-              <td>feature</td>
-              <td>basic functionality</td>
-              <td>data-driven styling</td>
+              <td>Feature key</td>
+              <td>Basic functionality</td>
+              <td>Data-driven styling</td>
             </tr>
           </thead>
           <tbody>
