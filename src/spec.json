@@ -4366,7 +4366,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4393,7 +4393,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4462,7 +4462,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4483,7 +4483,7 @@
         "doc": "Name of image in sprite to use for drawing images on extruded fills. For seamless patterns, image width and height must be a factor of two (2, 4, 8, ..., 512). Note that zoom-dependent expressions will be evaluated only at integer zoom levels.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4515,7 +4515,7 @@
         "transition": true,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",
@@ -4582,7 +4582,7 @@
         "transition": false,
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.50.0",
             "ios": "4.7.0",
             "macos": "0.13.0"
@@ -4894,7 +4894,7 @@
         "doc": "Name of image in sprite to use for drawing image lines. For seamless patterns, image width must be a factor of two (2, 4, 8, ..., 512). Note that zoom-dependent expressions will be evaluated only at integer zoom levels.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -4937,7 +4937,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.45.0",
             "android": "6.5.0",
             "ios": "4.4.0",
@@ -5128,7 +5128,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "999.9.9",
+            "ol": "TODO",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
