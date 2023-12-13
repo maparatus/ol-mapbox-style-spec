@@ -62,7 +62,7 @@ function getIcon (def, type: "basic" | "data-driven") {
     "basic": "basic functionality"
   }[type]
   let icon = "⬜"
-  if (!def[key]) {
+  if (!def[key] || !def[key].ol) {
     icon = "⬜";
   } else if (def[key].ol === "TODO") {
     icon = "📝"
@@ -136,7 +136,7 @@ export default function App () {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
           
-          const icon = getIcon(def);
+          const icon = getIcon(def, "basic");
           return (
             <div
               key={key}
