@@ -4769,7 +4769,7 @@
         "units": "pixels",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5128,7 +5128,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -6177,7 +6177,7 @@
         "doc": "Direction of light source when map is rotated.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.43.0",
             "android": "6.0.0",
             "ios": "4.0.0",
