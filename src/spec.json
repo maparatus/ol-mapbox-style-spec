@@ -4551,7 +4551,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "999.9.9",
             "js": "0.27.0",
             "android": "5.1.0",
             "ios": "3.6.0",

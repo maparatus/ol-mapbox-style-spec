@@ -251,7 +251,31 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "layer.type.values.fill-extrusion": [],
+  "layer.type.values.fill-extrusion": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            // "fill-extrusion-color": "#ff0000"
+          }
+        },
+      ],
+    },
+  ],
   "layer.type.values.fill": [
     {
       version: 8,
@@ -411,7 +435,31 @@ const testStyles: Record<string, StyleSpecification[]> = {
         ],
       },
   ],
-  "layout_fill-extrusion.visibility": [],
+  "layout_fill-extrusion.visibility": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "layout": {
+            "visibility": "none"
+          }
+        },
+      ],
+    },
+  ],
   "layout_fill.fill-sort-key": [],
   "layout_fill.visibility": [
     {
@@ -1204,13 +1252,166 @@ const testStyles: Record<string, StyleSpecification[]> = {
       ],
     },
   ],
-  "paint_fill-extrusion.fill-extrusion-base": [],
-  "paint_fill-extrusion.fill-extrusion-color": [],
-  "paint_fill-extrusion.fill-extrusion-height": [],
-  "paint_fill-extrusion.fill-extrusion-opacity": [],
-  "paint_fill-extrusion.fill-extrusion-pattern": [],
+  "paint_fill-extrusion.fill-extrusion-base": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-base": 100000,
+            "fill-extrusion-height": 200000,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_fill-extrusion.fill-extrusion-color": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-color": "#0000ff"
+          }
+        },
+      ],
+    },
+  ],
+  "paint_fill-extrusion.fill-extrusion-height": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-base": 100000,
+            "fill-extrusion-height": 200000,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_fill-extrusion.fill-extrusion-opacity": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-opacity": 0.2
+          }
+        },
+      ],
+    },
+  ],
+  "paint_fill-extrusion.fill-extrusion-pattern": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion1",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-pattern": "wetland_bg_11"
+          }
+        },
+      ],
+    },
+  ],
   "paint_fill-extrusion.fill-extrusion-translate-anchor": [],
-  "paint_fill-extrusion.fill-extrusion-translate": [],
+  "paint_fill-extrusion.fill-extrusion-translate": [
+    {
+      version: 8,
+      name: "test",
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: PolygonGeoJSON,
+        }
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          "id": "fill-extrusion1",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+          }
+        },
+        {
+          "id": "fill-extrusion2",
+          "type": "fill-extrusion",
+          "source": "polygons",
+          "paint": {
+            "fill-extrusion-translate": [20, 20]
+          }
+        },
+      ],
+    },
+  ],
   "paint_fill-extrusion.fill-extrusion-vertical-gradient": [],
   "paint_fill.fill-antialias": [],
   "paint_fill.fill-color": [
