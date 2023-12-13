@@ -80,11 +80,11 @@ function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
   let icon = "⬜"
   if (!def[key] || !def[key].ol) {
     icon = "⬜";
-  } else if (def[key].ol === "TODO") {
-    icon = "📝"
+  } else if (def[key].ol === "UNKNOWN") {
+    icon = "🤷"
   } else if (def[key].ol === "999.9.9") {
     const fallbackKey = `${key} fallback` as keyof SdkSupport
-    if (def[fallbackKey] && def[fallbackKey].ol !== "TODO" && def[fallbackKey].ol !== "999.9.9") {
+    if (def[fallbackKey] && def[fallbackKey].ol !== "UNKNOWN" && def[fallbackKey].ol !== "999.9.9") {
       icon = "🏚️"
     } else {
       icon = "❌"
@@ -105,11 +105,14 @@ export default function App () {
       <h1>ol-mapbox-style-spec</h1>
       <p>A specification test for ol-mapbox-style against maplibre-gl</p>
 
+      <p>
+        <strong>Note:</strong> The spec current refers to the support with all the PR patches applied. However the tests run against the stable <code>v12.1.1</code>
+      </p>
 
       <p>Icon key (not yet complete):</p>
       <dl style={{display: "grid", gridTemplateColumns: "20px auto", gap: 6, border: "solid 1px #ddd", padding: 8}}>
-        <dt>📝</dt>
-        <dd style={{margin: 0}}>Todo</dd>
+        <dt>🤷</dt>
+        <dd style={{margin: 0}}>Unknown</dd>
 
         <dt>❌</dt>
         <dd style={{margin: 0}}>Not supported</dd>

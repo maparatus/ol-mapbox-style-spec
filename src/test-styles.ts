@@ -479,7 +479,53 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       ],
     },
   ],
-  "layout_circle.circle-sort-key": [],
+  "layout_circle.circle-sort-key": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: Array(10).fill(true).map((_, index) => {
+              const o = index*0.05;
+              return {
+                type: "Feature",
+                geometry: {
+                  type: "Point",
+                  coordinates: [0+o, 0+o],
+                },
+                properties: {
+                  color: (index % 2) ? "red" : "blue",
+                  zIndex: (index % 2),
+                },
+              };
+            })
+          }
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "circle",
+          source: "points",
+          layout: {
+            "circle-sort-key": ["get", "zIndex"]
+          },
+          paint: {
+            "circle-color": ["get", "color"]
+          }
+        },
+      ],
+    },
+  ],
   "layout_circle.visibility": [
     {
         version: 8,
@@ -536,7 +582,61 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       ],
     },
   ],
-  "layout_fill.fill-sort-key": [],
+  "layout_fill.fill-sort-key": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        polygons: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: Array(10).fill(true).map((_, index) => {
+              const o = index*0.1;
+              return {
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [
+                      [0+o, 0+o],
+                      [1+o, 0+o],
+                      [1+o, 1+o],
+                      [0+o, 1+o],
+                      [0+o, 0+o],
+                    ],
+                  ],
+                },
+                properties: {
+                  color: (index % 2) ? "red" : "blue",
+                  zIndex: (index % 2),
+                },
+              };
+            })
+          }
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "fill",
+          source: "polygons",
+          layout: {
+            "fill-sort-key": ["get", "zIndex"]
+          },
+          paint: {
+            "fill-color": ["get", "color"]
+          }
+        },
+      ],
+    },
+  ],
   "layout_fill.visibility": [
     {
       version: 8,
@@ -596,7 +696,56 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
   "layout_line.line-join": [],
   "layout_line.line-miter-limit": [],
   "layout_line.line-round-limit": [],
-  "layout_line.line-sort-key": [],
+  "layout_line.line-sort-key": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        lines: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: Array(10).fill(true).map((_, index) => {
+              const o = index*0.1;
+              return {
+                type: "Feature",
+                geometry: {
+                  type: "LineString",
+                  coordinates: [
+                    [0+o, 0],
+                    [1+o, 0],
+                  ],
+                },
+                properties: {
+                  color: (index % 2) ? "red" : "blue",
+                  zIndex: (index % 2),
+                },
+              };
+            })
+          }
+        },
+      },
+      sprite: "",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "line",
+          source: "lines",
+          layout: {
+            "line-sort-key": ["get", "zIndex"]
+          },
+          paint: {
+            "line-color": ["get", "color"]
+          }
+        },
+      ],
+    },
+  ],
   "layout_line.visibility": [
     {
       version: 8,
@@ -846,7 +995,54 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
   "layout_symbol.icon-text-fit": [],
   "layout_symbol.symbol-avoid-edges": [],
   "layout_symbol.symbol-placement": [],
-  "layout_symbol.symbol-sort-key": [],
+  "layout_symbol.symbol-sort-key": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: Array(10).fill(true).map((_, index) => {
+              const o = index*0.1;
+              return {
+                type: "Feature",
+                geometry: {
+                  type: "Point",
+                  coordinates: [0+o, 0+o],
+                },
+                properties: {
+                  icon: (index % 2) ? "aquarium" : "bank",
+                  zIndex: (index % 2),
+                },
+              };
+            })
+          }
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "symbol-sort-key": ["get", "zIndex"],
+            "icon-image": ["get", "icon"],
+            "icon-allow-overlap": true,
+          },
+          paint: {
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.symbol-spacing": [],
   "layout_symbol.symbol-z-order": [],
   "layout_symbol.text-allow-overlap": [],
