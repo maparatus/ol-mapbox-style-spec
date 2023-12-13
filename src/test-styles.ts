@@ -23,7 +23,8 @@ const PointsGeoJSON: FeatureCollection = {
         coordinates: [-1, 0],
       },
       properties: {
-        name: "one"
+        name: "one",
+        size: 1,
       },
     },
     {
@@ -33,7 +34,8 @@ const PointsGeoJSON: FeatureCollection = {
         coordinates: [0, -1],
       },
       properties: {
-        name: "two"
+        name: "two",
+        size: 2,
       },
     },
     {
@@ -43,7 +45,8 @@ const PointsGeoJSON: FeatureCollection = {
         coordinates: [0, 0.5],
       },
       properties: {
-        name: "three"
+        name: "three",
+        size: 3,
       },
     },
   ],
@@ -697,6 +700,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -714,6 +720,60 @@ const testStyles: Record<string, StyleSpecification[]> = {
           layout: {
               "icon-image": "wetland_bg_11",
               "icon-size": 3
+          }
+        },
+      ],
+    },
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "data-driven/feature"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-size": ["get", "size"]
+          }
+        },
+      ],
+    },
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "data-driven/zoom zoom in and out should change size at zoom levels"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-size": ["interpolate", ["linear"], ["zoom"], 0, 1, 12, 4], 
           }
         },
       ],
