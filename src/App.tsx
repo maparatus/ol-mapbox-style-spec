@@ -113,7 +113,7 @@ export default function App () {
           </thead>
           <tbody>
             {Object.entries(toSupport).map(([key, def]) => {
-              return <tr>
+              return <tr key={key}>
                 <td><a href={`#${key}`}>{key}</a></td>
                 <td>{getIcon(def, "basic")}</td>
                 <td>{getIcon(def, "data-driven")}</td>
@@ -161,7 +161,7 @@ export default function App () {
               {!isMissingStyles && (
                 <div style={{ position: "relative", display: "flex", flexDirection: "column", gap: 6 }}>
                   {styles.map((style, styleIndex) => {
-                    return <div style={{
+                    return <div key={styleIndex} style={{
                       background: "#f6f6f6",
                       padding: 8,
                       border: "solid 1px #eee",
