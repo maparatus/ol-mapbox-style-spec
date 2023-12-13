@@ -131,6 +131,7 @@ export default function App () {
           display: "flex",
           flexDirection: "column",
           gap: 8,
+          marginTop: 16,
         }}
       >
         {Object.entries(toSupport).map(([key, def]) => {
