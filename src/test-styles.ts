@@ -145,7 +145,13 @@ const PolygonGeoJSON: FeatureCollection = {
   ],
 };
 
-const testStyles: Record<string, StyleSpecification[]> = {
+type StyleSpecificationWithDesc = StyleSpecification & {
+  metadata: undefined | (StyleSpecification["metadata"] & {
+    description?: string;
+  })
+}
+
+const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
   // "expression_name.values.-": [],
   // "expression_name.values.!": [],
   // "expression_name.values.!=": [],
