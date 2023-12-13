@@ -161,7 +161,10 @@ export default function App () {
               {!isMissingStyles && (
                 <div style={{ position: "relative" }}>
                   {styles.map((style, styleIndex) => {
-                    return <MapDemo key={styleIndex} mapStyle={style} />;
+                    return <div>
+                      {style.metadata?.description}
+                      <MapDemo key={styleIndex} mapStyle={style} />
+                    </div>;
                   })}
                 </div>
               )}
