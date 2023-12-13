@@ -26,6 +26,7 @@ const walkObject = (
 const toSupport: Record<string, any> = {};
 walkObject(spec, (path, obj) => {
   if (
+    path[0] !== "expression_name" &&
     path[path.length - 1] === "sdk-support" &&
     "js" in obj["basic functionality"]
   ) {
