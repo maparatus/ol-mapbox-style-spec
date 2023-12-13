@@ -232,6 +232,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {},
       sprite: "",
       glyphs:
@@ -248,6 +251,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -270,6 +276,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -295,6 +304,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -317,6 +329,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -339,6 +354,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -359,6 +377,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         lines: {
           type: "geojson",
@@ -381,6 +402,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -406,6 +430,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -428,6 +455,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {},
       sprite: "",
       glyphs:
@@ -448,6 +478,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
         version: 8,
         name: "test",
+        metadata: {
+          description: "basic"
+        },
         sources: {
           points: {
             type: "geojson",
@@ -473,6 +506,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -499,6 +535,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -525,6 +564,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -553,6 +595,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -578,6 +623,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -609,6 +657,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -635,6 +686,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -673,6 +727,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -792,6 +849,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -818,6 +878,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -847,6 +910,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -875,6 +941,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -904,6 +973,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -932,6 +1004,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -973,6 +1048,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1002,6 +1080,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1030,6 +1111,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1061,6 +1145,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1090,6 +1177,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {},
       sprite: "",
       glyphs:
@@ -1109,6 +1199,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {},
       sprite: "",
       glyphs:
@@ -1129,6 +1222,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {},
       sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
       glyphs:
@@ -1149,6 +1245,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1174,6 +1273,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1199,6 +1301,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1227,6 +1332,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1252,6 +1360,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1279,6 +1390,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1307,6 +1421,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1334,6 +1451,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points_base: {
           type: "geojson",
@@ -1369,6 +1489,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1395,6 +1518,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1420,6 +1546,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1446,6 +1575,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1471,6 +1603,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1497,6 +1632,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1531,6 +1669,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1556,6 +1697,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1582,6 +1726,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1607,6 +1754,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1633,6 +1783,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         polygons: {
           type: "geojson",
@@ -1693,6 +1846,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -1715,6 +1871,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -1743,6 +1902,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -1766,6 +1928,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -1788,6 +1953,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         terrarium: TerrariumSource,
       },
@@ -1810,6 +1978,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1837,6 +2008,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1863,6 +2037,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         lines: {
           type: "geojson",
@@ -1889,6 +2066,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         lines: {
           type: "geojson",
@@ -1915,6 +2095,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         lines: {
           type: "geojson",
@@ -1962,6 +2145,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -1995,6 +2181,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2021,6 +2210,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2049,6 +2241,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2082,6 +2277,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2108,6 +2306,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2136,6 +2337,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2164,6 +2368,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2193,6 +2400,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2221,6 +2431,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2250,6 +2463,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         'test': {
           'type': 'raster',
@@ -2282,6 +2498,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2312,6 +2531,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2341,6 +2563,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2372,6 +2597,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2402,6 +2630,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2432,6 +2663,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
@@ -2462,6 +2696,9 @@ const testStyles: Record<string, StyleSpecification[]> = {
     {
       version: 8,
       name: "test",
+      metadata: {
+        description: "basic"
+      },
       sources: {
         points: {
           type: "geojson",
