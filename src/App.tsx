@@ -60,15 +60,21 @@ function MapDemo({ mapStyle }: { mapStyle: StyleSpecification }) {
 function getIcon (def, type: "basic" | "data-driven") {
   const key = {
     "data-driven": "data-driven styling",
-    "basic": "basic functionality"
-  }[type]
+    "basic": "basic functionality",
+  }[type];
+  
   let icon = "⬜"
   if (!def[key] || !def[key].ol) {
     icon = "⬜";
   } else if (def[key].ol === "TODO") {
     icon = "📝"
   } else if (def[key].ol === "999.9.9") {
-    icon = "❌"
+    const fallbackKey = key+" fallback"
+    if (def[fallbackKey] && def[fallbackKey].ol !== "TODO" && def[fallbackKey].ol !== "999.9.9") {
+      icon = "🏚️"
+    } else {
+      icon = "❌"
+    }
   } else {
     icon = "✅"
   }
@@ -93,6 +99,9 @@ export default function App () {
 
         <dt>❌</dt>
         <dd style={{margin: 0}}>Not supported</dd>
+
+        <dt>🏚️</dt>
+        <dd style={{margin: 0}}>Fallback</dd>
 
         <dt>✅</dt>
         <dd style={{margin: 0}}>Supported</dd>
