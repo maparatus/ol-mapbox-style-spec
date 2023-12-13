@@ -2702,7 +2702,7 @@
         "doc": "Whether this layer is displayed.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.43.0",
             "android": "6.0.0",
             "ios": "4.0.0",
@@ -5814,7 +5814,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "TODO",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
