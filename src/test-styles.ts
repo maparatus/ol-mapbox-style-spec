@@ -1537,7 +1537,7 @@ const testStyles: Record<string, StyleSpecification[]> = {
           type: "fill",
           source: "polygons",
           paint: {
-            "fill-outline-color": "rgba(0, 0, 255, 1)",
+            "fill-outline-color": "rgba(255, 0, 0, 1)",
           },
         },
       ],
