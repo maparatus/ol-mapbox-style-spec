@@ -164,7 +164,10 @@ export default function App () {
           <tbody>
             {Object.entries(toSupport).map(([key, def]) => {
               return <tr key={key}>
-                <td><a href={`#${key}`}>{key}</a></td>
+                <td>
+                  <a href={`#${key}`}>{key}</a>{" "}
+                  {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
+                </td>
                 <td>{getIcon(def.sdk, "basic")}</td>
                 <td>{getIcon(def.sdk, "data-driven")}</td>
               </tr>
@@ -197,9 +200,8 @@ export default function App () {
               <a id={key} />
               <div>
                 {icon}&nbsp;
-                {key} ({def.bugs?.map((bugLink: string) => {
-                  return <BugLink link={bugLink} />
-                })})
+                {key}{" "}
+                {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
               </div>
               {isMissingStyles && (
                 <div
