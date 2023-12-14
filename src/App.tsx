@@ -52,8 +52,8 @@ function MapDemo({ mapStyle }: { mapStyle: StyleSpecificationExt }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, calc(50% - 6px))",
-        gap: 12,
+        gridTemplateColumns: "repeat(2, calc(50% - 4px))",
+        gap: 8,
       }}
     >
       <div
