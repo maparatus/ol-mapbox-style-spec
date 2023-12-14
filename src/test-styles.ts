@@ -1051,7 +1051,38 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.icon-optional": [],
+  "layout_symbol.icon-optional": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "text-font": ["Roboto Regular"],
+              "text-field": "{name}",
+              "icon-optional": true,
+              "icon-offset": [0, -60]
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-overlap": [],
   "layout_symbol.icon-padding": [
     {
