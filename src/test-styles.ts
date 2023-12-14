@@ -1446,7 +1446,57 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
   ],
   "layout_symbol.symbol-z-order": [],
   "layout_symbol.text-allow-overlap": [],
-  "layout_symbol.text-anchor": [],
+  "layout_symbol.text-anchor": [
+    ...([
+      "center",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ] as const).map(propValue => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `text-anchor=${propValue}`
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "point",
+            type: "circle",
+            source: "points",
+            paint: {
+              "circle-color": "#ff0000",
+            }
+          },
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+              "text-font": ["Roboto Regular"],
+              "text-field": "[{name}]",
+              "text-anchor": propValue,
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.text-field": [
     {
       version: 8,
