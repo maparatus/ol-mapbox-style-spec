@@ -29,8 +29,12 @@ export default function OpenLayers({ mapStyle }: { mapStyle: StyleSpecification 
 
   useEffect(() => {
     if (map) {
-      apply(map, mapStyle);
+      apply(map, mapStyle, {getImage: mapStyle.metadata?.getImageOpenLayers});
       map.getView().setZoom(5);
+      
+      if (mapStyle.metadata?.setupOpenLayers) {
+        mapStyle.metadata?.setupOpenLayers(map)
+      }
     }
   }, [map]);
 

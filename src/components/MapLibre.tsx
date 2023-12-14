@@ -32,8 +32,12 @@ export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecification })
   useEffect(() => {
     if (map) {
       map.setStyle(mapStyle);
+
+      if (mapStyle.metadata?.setupMapLibre) {
+        mapStyle.metadata?.setupMapLibre(map)
+      }
     }
-  }, [mapStyle]);
+  }, [map, mapStyle]);
 
   return <div ref={refInView} style={{ position: "relative", width: "100%", height: "100%" }}>
     <div style={{ width: "100%", height: "100%" }} ref={ref} />

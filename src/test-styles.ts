@@ -1,5 +1,8 @@
-import { LineLayerSpecification, PropertyValueSpecification, RasterDEMSourceSpecification, StyleSpecification } from "maplibre-gl";
+import { Map as MlMap, RasterDEMSourceSpecification, StyleSpecification } from "maplibre-gl";
 import { FeatureCollection } from "geojson";
+import { Map as OlMap } from "ol";
+import { Layer } from "ol/layer";
+import { generateSdfMapLibre, generateSdfOpenLayers } from "./util";
 
 const TerrariumSource: RasterDEMSourceSpecification = {
   type: 'raster-dem',
@@ -145,13 +148,16 @@ const PolygonGeoJSON: FeatureCollection = {
   ],
 };
 
-type StyleSpecificationWithDesc = StyleSpecification & {
+type StyleSpecificationExt = StyleSpecification & {
   metadata: undefined | (StyleSpecification["metadata"] & {
     description?: string;
+    setupOpenLayers?: (map: OlMap) => void;
+    setupMapLibre?: (map: MlMap) => void;
+    getImageOpenLayers?: (layer: Layer, id: string) => string | HTMLCanvasElement | HTMLImageElement;
   })
 }
 
-const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
+const testStyles: Record<string, StyleSpecificationExt[]> = {
   // "expression_name.values.-": [],
   // "expression_name.values.!": [],
   // "expression_name.values.!=": [],
@@ -699,7 +705,7 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       {desc: "butt", propValue: "butt"},
       {desc: "square", propValue: "square"},
     ] as const).map(({desc, propValue}) => {
-      const out: StyleSpecificationWithDesc = {
+      const out: StyleSpecificationExt = {
         version: 8,
         name: "test",
         metadata: {
@@ -844,7 +850,36 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       ],
     },
   ],
-  "layout_symbol.icon-allow-overlap": [],
+  "layout_symbol.icon-allow-overlap": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "zoo",
+              "icon-size": 4,
+              "icon-allow-overlap": true
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-anchor": [],
   "layout_symbol.icon-ignore-placement": [],
   "layout_symbol.icon-image": [
@@ -1031,7 +1066,45 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
     },
   ],
   "layout_symbol.icon-text-fit-padding": [],
-  "layout_symbol.icon-text-fit": [],
+  "layout_symbol.icon-text-fit": [
+    ...([
+      {desc: "none", propValue: "none"},
+      {desc: "width", propValue: "width"},
+      {desc: "height", propValue: "height"},
+      {desc: "both", propValue: "both"},
+    ] as const).map(({desc, propValue}) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: desc
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+              "text-field": "{name}\n{name}",
+              "text-font": ["Roboto Regular"],
+              "icon-image": "wetland_bg_11",
+              "icon-text-fit": propValue
+            }
+          },
+        ],
+      };
+      return out
+    })
+  ],
   "layout_symbol.symbol-avoid-edges": [],
   "layout_symbol.symbol-placement": [],
   "layout_symbol.symbol-sort-key": [
@@ -1264,7 +1337,7 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
           source: "points",
           layout: {
             "text-font": ["Roboto Regular"],
-            "text-field": "[{name}]",
+            "text-field": "{name}",
           }
         },
         {
@@ -1273,15 +1346,44 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
           source: "points",
           layout: {
             "text-font": ["Roboto Regular"],
-            "text-field": "[{name}]",
-            "text-offset": [2, 2],
+            "text-field": "{name}",
+            "text-offset": [5, 1],
           }
         },
       ],
     },
   ],
   "layout_symbol.text-optional": [],
-  "layout_symbol.text-overlap": [],
+  "layout_symbol.text-overlap": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "<<<<<name>>>>>\noverlap\noverlap",
+            "text-allow-overlap": true,
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-padding": [],
   "layout_symbol.text-pitch-alignment": [],
   "layout_symbol.text-radial-offset": [],
@@ -2725,10 +2827,177 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       ],
     },
   ],
-  "paint_symbol.icon-color": [],
-  "paint_symbol.icon-halo-blur": [],
-  "paint_symbol.icon-halo-color": [],
-  "paint_symbol.icon-halo-width": [],
+  "paint_symbol.icon-color": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic",
+        getImageOpenLayers: () => {
+          return generateSdfOpenLayers();
+        },
+        setupMapLibre: (map) => {
+          map.addImage(
+            "foo",
+            generateSdfMapLibre(),
+            {sdf: true}
+          )
+        }
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "foo",
+          },
+          paint: {
+              "icon-color": "#ff0000",
+          }
+        },
+      ],
+    },
+  ],
+  "paint_symbol.icon-halo-blur": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic",
+        getImageOpenLayers: () => {
+          return generateSdfOpenLayers();
+        },
+        setupMapLibre: (map) => {
+          map.addImage(
+            "foo",
+            generateSdfMapLibre(),
+            {sdf: true}
+          )
+        }
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "foo",
+          },
+          paint: {
+              "icon-color": "#ff0000",
+              "icon-halo-blur": 10,
+              "icon-halo-color": "#0000ff",
+              "icon-halo-width": 10,
+          }
+        },
+      ],
+    },
+  ],
+  "paint_symbol.icon-halo-color": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic",
+        getImageOpenLayers: () => {
+          return generateSdfOpenLayers();
+        },
+        setupMapLibre: (map) => {
+          map.addImage(
+            "foo",
+            generateSdfMapLibre(),
+            {sdf: true}
+          )
+        }
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "foo",
+          },
+          paint: {
+              "icon-color": "#ff0000",
+              "icon-halo-width": 9,
+              "icon-halo-color": "#0000ff",
+          }
+        },
+      ],
+    },
+  ],
+  "paint_symbol.icon-halo-width": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic",
+        getImageOpenLayers: () => {
+          return generateSdfOpenLayers();
+        },
+        setupMapLibre: (map) => {
+          map.addImage(
+            "foo",
+            generateSdfMapLibre(),
+            {sdf: true}
+          )
+        }
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "foo",
+          },
+          paint: {
+              "icon-color": "#ff0000",
+              "icon-halo-width": 10,
+              "icon-halo-color": "#0000ff",
+          }
+        },
+      ],
+    },
+  ],
   "paint_symbol.icon-opacity": [
     {
       version: 8,

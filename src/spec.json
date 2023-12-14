@@ -1255,7 +1255,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -1289,7 +1289,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "2.1.0"
           }
         },
@@ -1450,7 +1450,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.21.0",
             "android": "4.2.0",
             "ios": "3.4.0",
@@ -2514,7 +2514,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -2583,7 +2583,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "2.1.0"
           }
         },
@@ -2604,7 +2604,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5518,7 +5518,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5552,7 +5552,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5588,7 +5588,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -5624,7 +5624,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "999.9.9",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
