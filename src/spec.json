@@ -5042,6 +5042,9 @@
         "default": 0,
         "doc": "Amount to blur the circle. 1 blurs the circle such that only the centerpoint is full opacity.",
         "transition": true,
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1059"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -5226,6 +5229,9 @@
         "transition": true,
         "units": "pixels",
         "doc": "The width of the circle's stroke. Strokes are placed outside of the `circle-radius`.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1059"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -5257,6 +5263,9 @@
         "default": "#000000",
         "doc": "The stroke color of the circle.",
         "transition": true,
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1059"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -5965,6 +5974,9 @@
         "minimum": 0,
         "maximum": 1,
         "transition": true,
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1055"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -5989,6 +6001,9 @@
         "transition": true,
         "units": "degrees",
         "doc": "Rotates hues around the color wheel.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1055"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -6061,6 +6076,9 @@
         "minimum": -1,
         "maximum": 1,
         "transition": true,
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1055"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
