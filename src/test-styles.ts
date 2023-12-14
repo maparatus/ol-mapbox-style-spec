@@ -743,7 +743,7 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       "bevel",
       "miter",
       "round",
-    ] as const).map((propValue, index) => {
+    ] as const).map((propValue) => {
       const out: StyleSpecificationExt = {
         version: 8,
         name: "test",
@@ -1237,7 +1237,50 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
     })
   ],
   "layout_symbol.symbol-avoid-edges": [],
-  "layout_symbol.symbol-placement": [],
+  "layout_symbol.symbol-placement": [
+    ...(["line", "point", "line-center"] as const).map((propValue) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `symbol-placement=${propValue}`
+        },
+        sources: {
+          lines: {
+            type: "geojson",
+            data: LineGeoJSON,
+          }
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "line",
+            type: "line",
+            source: "lines",
+            paint: {
+              "line-color": "red",
+              "line-width": 2,
+            },
+          },
+          {
+            id: "test",
+            type: "symbol",
+            source: "lines",
+            layout: {
+              "symbol-placement": propValue,
+              "icon-image": "zoo",
+              "icon-allow-overlap": true,
+            },
+            paint: {
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.symbol-sort-key": [
     {
       version: 8,
@@ -1286,7 +1329,47 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.symbol-spacing": [],
+  "layout_symbol.symbol-spacing": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        lines: {
+          type: "geojson",
+          data: LineGeoJSON,
+        }
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "line",
+          type: "line",
+          source: "lines",
+          paint: {
+            "line-color": "red",
+            "line-width": 2,
+          },
+        },
+        {
+          id: "test",
+          type: "symbol",
+          source: "lines",
+          layout: {
+            "symbol-placement": "line",
+            "icon-image": "zoo",
+            "symbol-spacing": 10,
+          },
+          paint: {
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.symbol-z-order": [],
   "layout_symbol.text-allow-overlap": [],
   "layout_symbol.text-anchor": [],
