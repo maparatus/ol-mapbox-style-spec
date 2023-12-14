@@ -950,7 +950,35 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
   ],
   "layout_symbol.icon-optional": [],
   "layout_symbol.icon-overlap": [],
-  "layout_symbol.icon-padding": [],
+  "layout_symbol.icon-padding": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-padding": 100
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-pitch-alignment": [],
   "layout_symbol.icon-rotate": [
     {
@@ -1421,7 +1449,36 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.text-padding": [],
+  "layout_symbol.text-padding": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test1",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "{name}",
+            "text-padding": 100,
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-pitch-alignment": [],
   "layout_symbol.text-radial-offset": [],
   "layout_symbol.text-rotate": [
