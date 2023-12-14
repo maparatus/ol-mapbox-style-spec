@@ -1,4 +1,4 @@
-import { RasterDEMSourceSpecification, StyleSpecification } from "maplibre-gl";
+import { LineLayerSpecification, PropertyValueSpecification, RasterDEMSourceSpecification, StyleSpecification } from "maplibre-gl";
 import { FeatureCollection } from "geojson";
 
 const TerrariumSource: RasterDEMSourceSpecification = {
@@ -692,7 +692,46 @@ const testStyles: Record<string, StyleSpecificationWithDesc[]> = {
       ],
     },
   ],
-  "layout_line.line-cap": [],
+  "layout_line.line-cap": [
+    ...([
+      {desc: "default", propValue: undefined},
+      {desc: "round", propValue: "round"},
+      {desc: "butt", propValue: "butt"},
+      {desc: "square", propValue: "square"},
+    ] as const).map(({desc, propValue}) => {
+      const out: StyleSpecificationWithDesc = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: desc
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: LineGeoJSON,
+          },
+        },
+        sprite: "",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "line",
+            source: "points",
+            layout: {
+                "line-cap": propValue,
+            },
+            paint: {
+              "line-color": "red",
+              "line-width": 20,
+            }
+          },
+        ],
+      };
+      return out;
+    })
+  ],
   "layout_line.line-join": [],
   "layout_line.line-miter-limit": [],
   "layout_line.line-round-limit": [],
