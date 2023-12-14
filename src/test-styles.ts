@@ -1027,7 +1027,49 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       return out;
     })
   ],
-  "layout_symbol.icon-ignore-placement": [],
+  "layout_symbol.icon-ignore-placement": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: Array(10).fill(true).flatMap((_, x) => {
+              return Array(10).fill(true).map((_, y) => {
+                return {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [x*0.2, y*0.2],
+                  },
+                  properties: {},
+                };
+              });
+            }),
+          },
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+              "icon-image": "wetland_bg_11",
+              "icon-ignore-placement": true,
+          }
+        },
+      ],
+    },
+  ],
   "layout_symbol.icon-image": [
     {
       version: 8,
@@ -1186,7 +1228,47 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.icon-rotation-alignment": [],
+  "layout_symbol.icon-rotation-alignment": [
+    ...(["auto", "map", "viewport"] as const).map(propValue => {
+      const cameraAngle = 32;
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `icon-rotation-alignment=${propValue}`,
+          setupMapLibre: (map) => {
+            map.setBearing(cameraAngle);
+          },
+          setupOpenLayers: (map) => {
+            const cameraAngleRadians = cameraAngle * Math.PI / 180;
+            map.getView().setRotation(-cameraAngleRadians);
+          }
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+                "icon-image": "wetland_bg_11",
+                "icon-rotate": 45,
+                "icon-rotation-alignment": propValue
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.icon-size": [
     {
       version: 8,
@@ -1657,7 +1739,91 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.text-max-angle": [],
+  "layout_symbol.text-max-angle": [
+    ...([0, 45, 90, 135] as const).map((propValue) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `text-max-angle=${propValue}`
+        },
+        sources: {
+          lines: {
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "LineString",
+                    coordinates: [
+                      [-2, 0],
+                      [0, 1],
+                      [2, 0],
+                    ],
+                  },
+                  properties: {},
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "LineString",
+                    coordinates: [
+                      [-2, -3],
+                      [0, -1],
+                      [2, -3],
+                    ],
+                  },
+                  properties: {},
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "LineString",
+                    coordinates: [
+                      [-2, 3],
+                      [0, 3],
+                      [2, 3],
+                    ],
+                  },
+                  properties: {},
+                },
+              ],
+            },
+          }
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "line",
+            type: "line",
+            source: "lines",
+            paint: {
+              "line-color": "red",
+              "line-width": 2,
+            },
+          },
+          {
+            id: "test",
+            type: "symbol",
+            source: "lines",
+            layout: {
+              "symbol-placement": "line-center",
+              "text-font": ["Roboto Regular"],
+              "text-field": "testing testing testing",
+              "text-max-angle": propValue,
+            },
+            paint: {
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.text-max-width": [
     {
       version: 8,
@@ -1822,7 +1988,48 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.text-rotation-alignment": [],
+  "layout_symbol.text-rotation-alignment": [
+    ...(["auto", "map", "viewport"] as const).map(propValue => {
+      const cameraAngle = 32;
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `text-rotation-alignment=${propValue}`,
+          setupMapLibre: (map) => {
+            map.setBearing(cameraAngle);
+          },
+          setupOpenLayers: (map) => {
+            const cameraAngleRadians = cameraAngle * Math.PI / 180;
+            map.getView().setRotation(-cameraAngleRadians);
+          }
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+                "text-field": "aa",
+                "text-font": ["Roboto Regular"],
+                "text-rotation-alignment": propValue,
+                "text-rotate": 45,
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.text-size": [
     {
       version: 8,
@@ -1886,7 +2093,46 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
     },
   ],
   "layout_symbol.text-variable-anchor-offset": [],
-  "layout_symbol.text-variable-anchor": [],
+  "layout_symbol.text-variable-anchor": [
+    {
+      version: 8,
+      name: "test",
+      metadata: {
+        description: "basic"
+      },
+      sources: {
+        points: {
+          type: "geojson",
+          data: PointsGeoJSON,
+        },
+      },
+      sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+      glyphs:
+        "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+      layers: [
+        {
+          id: "circles",
+          type: "circle",
+          source: "points",
+          layout: {},
+          paint: {
+            "circle-color": "#ff0000",
+          }
+        },
+        {
+          id: "test",
+          type: "symbol",
+          source: "points",
+          layout: {
+            "text-font": ["Roboto Regular"],
+            "text-field": "testing",
+            "text-variable-anchor": ["top", "bottom", "left", "right"],
+          },
+          paint: {}
+        },
+      ],
+    },
+  ],
   "layout_symbol.text-writing-mode": [],
   "layout_symbol.visibility": [
     {
