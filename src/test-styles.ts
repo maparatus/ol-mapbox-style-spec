@@ -983,7 +983,50 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       ],
     },
   ],
-  "layout_symbol.icon-anchor": [],
+  "layout_symbol.icon-anchor": [
+    ...([
+      "center",
+      "left",
+      "right",
+      "top",
+      "bottom",
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ] as const).map(propValue => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `icon-anchor=${propValue}`
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+              "text-field": "a",
+              "text-font": ["Roboto Regular"],
+              "icon-image": "zoo",
+              "icon-anchor": propValue,
+            }
+          },
+        ],
+      };
+      return out;
+    })
+  ],
   "layout_symbol.icon-ignore-placement": [],
   "layout_symbol.icon-image": [
     {
