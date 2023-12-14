@@ -3,10 +3,10 @@ import "ol/ol.css";
 import { useEffect, useRef, useState } from "react";
 import { Map as OlMap } from "ol";
 import apply from "ol-mapbox-style";
-import { StyleSpecification } from "maplibre-gl";
+import { StyleSpecificationExt } from "../test-styles";
 
 
-export default function OpenLayers({ mapStyle }: { mapStyle: StyleSpecification }) {
+export default function OpenLayers({ mapStyle }: { mapStyle: StyleSpecificationExt }) {
   const [map, setMap] = useState<OlMap | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 

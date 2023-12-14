@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import {
   Map as MapLibreMap,
   NavigationControl,
-  StyleSpecification,
 } from "maplibre-gl";
 import { useInView } from "react-intersection-observer";
+import { StyleSpecificationExt } from "../test-styles";
 
-export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecification }) {
+export default function Maplibre({ mapStyle }: { mapStyle: StyleSpecificationExt }) {
   const { ref: refInView, inView } = useInView();
   const [map, setMap] = useState<MapLibreMap | null>(null);
   const ref = useRef<HTMLDivElement>(null);

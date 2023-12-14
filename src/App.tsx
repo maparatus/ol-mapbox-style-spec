@@ -1,10 +1,9 @@
 import "./App.css"
 
 import spec from "./spec.json";
-import { StyleSpecification } from "maplibre-gl";
 import MaplibreMapView from "./components/MapLibre";
 import OpenLayerMapView from "./components/OpenLayers";
-import testStyles from "./test-styles";
+import testStyles, { StyleSpecificationExt } from "./test-styles";
 
 const walkObject = (
   obj: any,
@@ -34,7 +33,7 @@ walkObject(spec, (path, obj) => {
   }
 });
 
-function MapDemo({ mapStyle }: { mapStyle: StyleSpecification }) {
+function MapDemo({ mapStyle }: { mapStyle: StyleSpecificationExt }) {
   return (
     <div
       style={{

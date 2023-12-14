@@ -148,7 +148,7 @@ const PolygonGeoJSON: FeatureCollection = {
   ],
 };
 
-type StyleSpecificationExt = StyleSpecification & {
+export type StyleSpecificationExt = StyleSpecification & {
   metadata: undefined | (StyleSpecification["metadata"] & {
     description?: string;
     setupOpenLayers?: (map: OlMap) => void;
