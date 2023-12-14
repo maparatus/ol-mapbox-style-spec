@@ -738,8 +738,111 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
       return out;
     })
   ],
-  "layout_line.line-join": [],
-  "layout_line.line-miter-limit": [],
+  "layout_line.line-join": [
+    ...([
+      "bevel",
+      "miter",
+      "round",
+    ] as const).map((propValue, index) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: propValue
+        },
+        sources: {
+          line: {
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "LineString",
+                    coordinates: [
+                      [-1, 0],
+                      [0, 0],
+                      [0, 1],
+                    ]
+                  }
+                }
+              ]
+            },
+          },
+        },
+        sprite: "",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "line",
+            source: "line",
+            layout: {
+              "line-join": propValue
+            },
+            paint: {
+              "line-color": "red",
+              "line-width": 20,
+            }
+          },
+        ],
+      };
+      return out;
+    })
+  ],
+  "layout_line.line-miter-limit": [
+    ...([2, 4, 6,] as const).map((propValue) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: `line-miter-limit=${propValue}`
+        },
+        sources: {
+          line: {
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "LineString",
+                    coordinates: [
+                      [-1, 0],
+                      [0, 0],
+                      [-1, 0.4],
+                    ]
+                  }
+                }
+              ]
+            },
+          },
+        },
+        sprite: "",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "line",
+            source: "line",
+            layout: {
+              "line-join": "miter",
+              "line-miter-limit": propValue,
+            },
+            paint: {
+              "line-color": "red",
+              "line-width": 10,
+            }
+          },
+        ],
+      };
+      return out;
+    })
+  ],
   "layout_line.line-round-limit": [],
   "layout_line.line-sort-key": [
     {

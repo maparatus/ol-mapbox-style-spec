@@ -970,7 +970,7 @@
         "doc": "The display of lines when joining.",
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -1004,7 +1004,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "UNKNOWN",
+            "ol": "12.1.1",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
