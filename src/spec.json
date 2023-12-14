@@ -765,6 +765,9 @@
       "fill-sort-key": {
         "type": "number",
         "doc": "Sorts features in ascending order based on this value. Features with a higher sort key will appear above features with a lower sort key.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1060"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -818,6 +821,9 @@
       "circle-sort-key": {
         "type": "number",
         "doc": "Sorts features in ascending order based on this value. Features with a higher sort key will appear above features with a lower sort key.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1060"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -1048,6 +1054,9 @@
       "line-sort-key": {
         "type": "number",
         "doc": "Sorts features in ascending order based on this value. Features with a higher sort key will appear above features with a lower sort key.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1060"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
@@ -1189,6 +1198,9 @@
       "symbol-sort-key": {
         "type": "number",
         "doc": "Sorts features in ascending order based on this value. Features with lower sort keys are drawn and placed first.  When `icon-allow-overlap` or `text-allow-overlap` is `false`, features with a lower sort key will have priority during placement. When `icon-allow-overlap` or `text-allow-overlap` is set to `true`, features with a higher sort key will overlap over features with a lower sort key.",
+        "bugs": [
+          "https://github.com/openlayers/ol-mapbox-style/pull/1060"
+        ],
         "sdk-support": {
           "basic functionality": {
             "ol": "12.1.1",
