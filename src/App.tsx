@@ -29,7 +29,21 @@ walkObject(spec, (path, obj) => {
     path[path.length - 1] === "sdk-support" &&
     "js" in obj["basic functionality"]
   ) {
-    toSupport[path.slice(0, -1).join(".")] = obj;
+    const baseKey = path.slice(0, -1).join(".")
+    toSupport[baseKey] = {
+      ...toSupport[baseKey],
+      sdk: obj
+    };
+  }
+  if (
+    path[0] !== "expression_name" &&
+    path[path.length - 1] === "bugs"
+  ) {
+    const baseKey = path.slice(0, -1).join(".")
+    toSupport[baseKey] = {
+      ...toSupport[baseKey],
+      bugs: obj
+    };
   }
 });
 
@@ -94,6 +108,17 @@ function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
   return icon;
 }
 
+function BugLink ({link}: {link: string}) {
+  const linkMatches = link.match(/https:\/\/github.com\/openlayers\/ol-mapbox-style\/issues\/(\d+)$/)
+  if (linkMatches) {
+    const num = linkMatches[1];
+    return <a target="_blank" className="BugLink" href={link}>#{num}</a>
+  } else {
+    console.error(`Invalid link: '${link}'`)
+    return <div/>;
+  }
+}
+
 export default function App () {
   return (
     <div
@@ -140,8 +165,8 @@ export default function App () {
             {Object.entries(toSupport).map(([key, def]) => {
               return <tr key={key}>
                 <td><a href={`#${key}`}>{key}</a></td>
-                <td>{getIcon(def, "basic")}</td>
-                <td>{getIcon(def, "data-driven")}</td>
+                <td>{getIcon(def.sdk, "basic")}</td>
+                <td>{getIcon(def.sdk, "data-driven")}</td>
               </tr>
             })}
           </tbody>
@@ -163,7 +188,7 @@ export default function App () {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
           
-          const icon = getIcon(def, "basic");
+          const icon = getIcon(def.sdk, "basic");
           return (
             <div
               key={key}
@@ -172,7 +197,9 @@ export default function App () {
               <a id={key} />
               <div>
                 {icon}&nbsp;
-                {key}
+                {key} ({def.bugs?.map((bugLink: string) => {
+                  return <BugLink link={bugLink} />
+                })})
               </div>
               {isMissingStyles && (
                 <div
