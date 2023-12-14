@@ -1218,7 +1218,44 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
     },
   ],
   "layout_symbol.text-ignore-placement": [],
-  "layout_symbol.text-justify": [],
+  "layout_symbol.text-justify": [
+    ...([
+      "auto",
+      "center",
+      "left",
+      "right"
+    ] as const).map((propValue) => {
+      const out: StyleSpecificationExt = {
+        version: 8,
+        name: "test",
+        metadata: {
+          description: propValue
+        },
+        sources: {
+          points: {
+            type: "geojson",
+            data: PointsGeoJSON,
+          },
+        },
+        sprite: "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+        glyphs:
+          "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+        layers: [
+          {
+            id: "test",
+            type: "symbol",
+            source: "points",
+            layout: {
+              "text-font": ["Open Sans Bold"],
+              "text-field": "{name}\n11111111111",
+              "text-justify": propValue,
+            }
+          },
+        ],
+      }
+      return out;
+    })
+  ],
   "layout_symbol.text-keep-upright": [],
   "layout_symbol.text-letter-spacing": [
     {
@@ -3232,7 +3269,7 @@ const testStyles: Record<string, StyleSpecificationExt[]> = {
             "text-field": "{name}" 
           },
           paint: {
-            "text-translate": [20, 20],
+            "text-translate": [90, -10],
           }
         },
       ],
