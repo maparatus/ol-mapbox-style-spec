@@ -109,13 +109,17 @@ function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
 }
 
 function BugLink ({link}: {link: string}) {
-  const linkMatches = link.match(/https:\/\/github.com\/openlayers\/ol-mapbox-style\/issues\/(\d+)$/)
-  if (linkMatches) {
-    const num = linkMatches[1];
+  const issueMatches = link.match(/https:\/\/github.com\/openlayers\/ol-mapbox-style\/issues\/(\d+)$/)
+  const prMatches = link.match(/https:\/\/github.com\/openlayers\/ol-mapbox-style\/pull\/(\d+)$/)
+  if (issueMatches) {
+    const num = issueMatches[1];
     return <a target="_blank" className="BugLink" href={link}>#{num}</a>
+  } else if (prMatches) {
+    const num = prMatches[1];
+    return <a target="_blank" className="BugLink" href={link}>pr#{num}</a>
   } else {
     console.error(`Invalid link: '${link}'`)
-    return <div/>;
+    return <span>???</span>;
   }
 }
 
@@ -158,7 +162,7 @@ export default function App () {
             <tr>
               <td>Feature key</td>
               <td>Basic functionality</td>
-              <td>Data-driven styling</td>
+              <td>Expressions (todo)</td>
             </tr>
           </thead>
           <tbody>
@@ -169,7 +173,7 @@ export default function App () {
                   {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
                 </td>
                 <td>{getIcon(def.sdk, "basic")}</td>
-                <td>{getIcon(def.sdk, "data-driven")}</td>
+                <td></td>
               </tr>
             })}
           </tbody>
