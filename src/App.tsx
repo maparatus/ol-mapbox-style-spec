@@ -95,6 +95,8 @@ function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
     icon = "⬜";
   } else if (def[key].ol === "UNKNOWN") {
     icon = "🤷"
+  } else if (def[key].ol === "IN_REVIEW") {
+    icon = "🔜"
   } else if (def[key].ol === "999.9.9") {
     const fallbackKey = `${key} fallback` as keyof SdkSupport
     if (def[fallbackKey] && def[fallbackKey].ol !== "UNKNOWN" && def[fallbackKey].ol !== "999.9.9") {
@@ -151,9 +153,11 @@ export default function App () {
         <dt>✅</dt>
         <dd style={{margin: 0}}><em>Supported</em>: has same behaviour as maplibre to a great enough extent to considered supported</dd>
         
+        <dt>🔜</dt>
+        <dd style={{margin: 0}}><em>In review</em>: feature in review and coming soon (hopefully)</dd>
+        
         <dt>⬜</dt>
         <dd style={{margin: 0}}><em>Not required</em>: not required by spec</dd>
-        
       </dl>
 
       <div style={{overflowX: "auto"}}>
