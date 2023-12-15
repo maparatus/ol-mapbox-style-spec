@@ -4,6 +4,9 @@ import spec from "./spec.json";
 import MaplibreMapView from "./components/MapLibre";
 import OpenLayerMapView from "./components/OpenLayers";
 import testStyles, { StyleSpecificationExt } from "./test-styles";
+import { useEffect, useState } from "react";
+import pkg from "../package.json";
+import semver from "semver";
 
 const walkObject = (
   obj: any,
@@ -84,11 +87,19 @@ type SdkSupport = {
   "data-driven styling fallback": SdkSupportItem
 }
 
-function getIcon (def: SdkSupport, type: "basic" | "data-driven") {
-  const key = {
-    "data-driven": "data-driven styling",
-    "basic": "basic functionality",
-  }[type] as keyof SdkSupport;
+const INITIAL_VERSION = "12.1.1"
+const CURRENT_VERSION = pkg.dependencies['ol-mapbox-style']
+
+function getIcon (def: SdkSupport, version: string) {
+  const key = "basic functionality";
+
+  if (version !== CURRENT_VERSION) {
+    if (semver.valid(def[key].ol)) {
+      const isSupported = semver.gte(version, def[key].ol)
+      return isSupported ? "✅" : "❌"
+    }
+    return "❌"
+  }
   
   let icon = "⬜"
   if (!def[key] || !def[key].ol) {
@@ -125,7 +136,28 @@ function BugLink ({link}: {link: string}) {
   }
 }
 
+async function getVersionInfo () {
+  const res = await fetch("https://data.jsdelivr.com/v1/packages/npm/ol-mapbox-style");
+  const json = await res.json();
+  console.log(json)
+  return json;
+}
+
 export default function App () {
+  const [versions, setVersions] = useState([])
+  const [currentVersion, setCurrentVersion] = useState(CURRENT_VERSION)
+
+  useEffect(() => {
+    getVersionInfo().then(json => {
+      const newVersions = json.versions.map(v => v.version).filter(v => {
+        return semver.gte(v, INITIAL_VERSION)
+      })
+      setVersions(newVersions)
+    })
+  }, [])
+
+  const isComparing = currentVersion !== CURRENT_VERSION 
+
   return (
     <div
       style={{
@@ -160,13 +192,29 @@ export default function App () {
         <dd style={{margin: 0}}><em>Not required</em>: not required by spec</dd>
       </dl>
 
+      <div style={{marginBottom: 12}}>
+        <label htmlFor="versions">Compare against </label>
+        
+        <select
+          id="versions"
+          value={currentVersion}
+          onChange={(e) => setCurrentVersion(e.target.value)}
+          disabled={versions.length < 1 || versions.length === 1}
+        >
+          {versions.length < 1 && <option>loading versions&hellip;</option>}
+          {versions.map(v => {
+            return <option>{v}</option>
+          })}
+        </select>
+      </div>
+
       <div style={{overflowX: "auto"}}>
         <table>
           <thead>
             <tr>
               <td>Feature key</td>
-              <td>Basic functionality</td>
-              <td>Expressions (todo)</td>
+              <td>{CURRENT_VERSION}</td>
+              {isComparing && <td>{currentVersion}</td>}
             </tr>
           </thead>
           <tbody>
@@ -176,8 +224,8 @@ export default function App () {
                   <a href={`#${key}`}>{key}</a>{" "}
                   {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
                 </td>
-                <td>{getIcon(def.sdk, "basic")}</td>
-                <td></td>
+                <td>{getIcon(def.sdk, CURRENT_VERSION)}</td>
+                {isComparing && <td>{getIcon(def.sdk, currentVersion)}</td>}
               </tr>
             })}
           </tbody>
@@ -199,7 +247,7 @@ export default function App () {
           const styles = testStyles[key] ?? [];
           const isMissingStyles = styles.length === 0;
           
-          const icon = getIcon(def.sdk, "basic");
+          const icon = getIcon(def.sdk, currentVersion);
           return (
             <div
               key={key}

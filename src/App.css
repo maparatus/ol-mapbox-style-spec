@@ -27,9 +27,8 @@ table td a:hover {
   text-decoration: underline;
 }
 
-table td:not(*:first-child, *:last-child) {
+table td:not(*:first-child) {
   border-left: solid 1px #ccc;
-  border-right: solid 1px #ccc;
 }
 
 table tbody tr:nth-child(odd) {
