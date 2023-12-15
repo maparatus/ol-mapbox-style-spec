@@ -5,7 +5,7 @@ import MaplibreMapView from "./components/MapLibre";
 import OpenLayerMapView from "./components/OpenLayers";
 import testStyles, { StyleSpecificationExt } from "./test-styles";
 import { useEffect, useState } from "react";
-import pkg from "../package.json";
+import {packages as lockPackages} from "../package-lock.json";
 import semver from "semver";
 
 const walkObject = (
@@ -88,7 +88,7 @@ type SdkSupport = {
 }
 
 const INITIAL_VERSION = "12.1.1"
-const CURRENT_VERSION = pkg.dependencies['ol-mapbox-style']
+const CURRENT_VERSION = lockPackages['node_modules/ol-mapbox-style'].version;
 
 function getIcon (def: SdkSupport, version: string) {
   const key = "basic functionality";
@@ -139,7 +139,6 @@ function BugLink ({link}: {link: string}) {
 async function getVersionInfo () {
   const res = await fetch("https://data.jsdelivr.com/v1/packages/npm/ol-mapbox-style");
   const json = await res.json();
-  console.log(json)
   return json;
 }
 
@@ -203,7 +202,7 @@ export default function App () {
         >
           {versions.length < 1 && <option>loading versions&hellip;</option>}
           {versions.map(v => {
-            return <option>{v}</option>
+            return <option key={v}>{v}</option>
           })}
         </select>
       </div>
@@ -222,7 +221,7 @@ export default function App () {
               return <tr key={key}>
                 <td>
                   <a href={`#${key}`}>{key}</a>{" "}
-                  {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
+                  {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink key={bugLink} link={bugLink} />)})</span>}
                 </td>
                 <td>{getIcon(def.sdk, CURRENT_VERSION)}</td>
                 {isComparing && <td>{getIcon(def.sdk, currentVersion)}</td>}
@@ -257,7 +256,7 @@ export default function App () {
               <div>
                 {icon}&nbsp;
                 {key}{" "}
-                {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink link={bugLink} />)})</span>}
+                {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink key={bugLink} link={bugLink} />)})</span>}
               </div>
               {isMissingStyles && (
                 <div
