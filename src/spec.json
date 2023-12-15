@@ -770,7 +770,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "1.2.0",
             "android": "9.1.0",
             "ios": "5.8.0",
@@ -826,7 +826,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "1.2.0",
             "android": "9.2.0",
             "ios": "5.9.0",
@@ -1059,7 +1059,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "1.2.0",
             "android": "9.1.0",
             "ios": "5.8.0",
@@ -1203,7 +1203,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "0.53.0",
             "android": "7.4.0",
             "ios": "4.11.0",
@@ -5059,7 +5059,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",
@@ -6018,7 +6018,7 @@
         ],
         "sdk-support": {
           "basic functionality": {
-            "ol": "IN_REVIEW",
+            "ol": "UNKNOWN",
             "js": "0.10.0",
             "android": "2.0.1",
             "ios": "2.0.0",

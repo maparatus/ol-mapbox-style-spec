@@ -90,7 +90,7 @@ type SdkSupport = {
 const INITIAL_VERSION = "12.1.1"
 const CURRENT_VERSION = lockPackages['node_modules/ol-mapbox-style'].version;
 
-function getIcon (def: SdkSupport, version: string) {
+function getIcon (def: SdkSupport, version: string, bugs: string[] = []) {
   const key = "basic functionality";
 
   if (version !== CURRENT_VERSION) {
@@ -105,9 +105,11 @@ function getIcon (def: SdkSupport, version: string) {
   if (!def[key] || !def[key].ol) {
     icon = "⬜";
   } else if (def[key].ol === "UNKNOWN") {
-    icon = "🤷"
-  } else if (def[key].ol === "IN_REVIEW") {
-    icon = "🔜"
+    if (bugs.find(bug => bug.includes("/pull/"))) {
+      icon = "🔜"
+    } else {
+      icon = "🤷"
+    }
   } else if (def[key].ol === "999.9.9") {
     const fallbackKey = `${key} fallback` as keyof SdkSupport
     if (def[fallbackKey] && def[fallbackKey].ol !== "UNKNOWN" && def[fallbackKey].ol !== "999.9.9") {
@@ -223,8 +225,8 @@ export default function App () {
                   <a href={`#${key}`}>{key}</a>{" "}
                   {def.bugs && <span>({def.bugs?.map((bugLink: string) => <BugLink key={bugLink} link={bugLink} />)})</span>}
                 </td>
-                <td>{getIcon(def.sdk, CURRENT_VERSION)}</td>
-                {isComparing && <td>{getIcon(def.sdk, currentVersion)}</td>}
+                <td>{getIcon(def.sdk, CURRENT_VERSION, def.bugs)}</td>
+                {isComparing && <td>{getIcon(def.sdk, currentVersion, def.bugs)}</td>}
               </tr>
             })}
           </tbody>
