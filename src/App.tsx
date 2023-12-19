@@ -166,13 +166,9 @@ export default function App () {
       }}
     >
       <h1>ol-mapbox-style-spec</h1>
-      <p>A specification test for ol-mapbox-style against maplibre-gl</p>
+      <p>A specification test for <a href="https://github.com/openlayers/ol-mapbox-style" target="_blank">ol-mapbox-style</a> against <a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank">maplibre-gl</a></p>
 
-      <p>
-        <strong>Note:</strong> The spec current refers to the support with all the PR patches applied. However the tests run against the stable <code>v12.1.1</code>
-      </p>
-
-      <p>Icon key (not yet complete):</p>
+      <p>Icon key:</p>
       <dl style={{display: "grid", gridTemplateColumns: "20px auto", gap: 6, border: "solid 1px #ddd", padding: 8}}>
         <dt>🤷</dt>
         <dd style={{margin: 0}}><em>Unknown</em>: not yet investigated</dd>
