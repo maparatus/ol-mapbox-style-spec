@@ -145,12 +145,12 @@ async function getVersionInfo () {
 }
 
 export default function App () {
-  const [versions, setVersions] = useState([])
+  const [versions, setVersions] = useState<string[]>([])
   const [currentVersion, setCurrentVersion] = useState(CURRENT_VERSION)
 
   useEffect(() => {
-    getVersionInfo().then(json => {
-      const newVersions = json.versions.map(v => v.version).filter(v => {
+    getVersionInfo().then((json: {versions: {version: string}[]}) => {
+      const newVersions = json.versions.map((v) => v.version).filter(v => {
         return semver.gte(v, INITIAL_VERSION)
       })
       setVersions(newVersions)
